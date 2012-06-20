@@ -14,7 +14,7 @@ object HttpClientRequest {
   def main(args : Array[String]) : Unit = {
      doGet
      doPost
-  }
+  } //
 
   def doGet = {
     val encodedUrl = new String("http://api.skream.com/?xml=" + URLEncoder.encode("<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
