@@ -16,7 +16,7 @@ class XmlMessageUtilSpec extends SpecificationWithJUnit with WebSpecification {
     }
 
     "the names " in {
-      XmlMessageUtil.getProdDetails(file)    // git comment test
+      XmlMessageUtil.getProdDetails(file)
       true
     }
   }

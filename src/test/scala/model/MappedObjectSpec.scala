@@ -4,9 +4,8 @@ import org.specs2.mutable.SpecificationWithJUnit
 import net.liftweb.mapper._
 import code.model.{Client, MappedObject}
 import code.acceptance.infrastructure.WebSpecification
-import infostructure.FirefoxWebDriver
 
-class MappedObjectSpec extends SpecificationWithJUnit with WebSpecification with FirefoxWebDriver {
+class MappedObjectSpec extends SpecificationWithJUnit with WebSpecification {
 
   "MappedObject object" should {
     "connect to the h2 DB" in {

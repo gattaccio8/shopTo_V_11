@@ -2,9 +2,8 @@ package snippet
 
 import org.specs2.mutable.SpecificationWithJUnit
 import code.acceptance.infrastructure.WebSpecification
-import infostructure.FirefoxWebDriver
 
-class DisplayProductsSpec extends SpecificationWithJUnit with WebSpecification with FirefoxWebDriver {
+class DisplayProductsSpec extends SpecificationWithJUnit with WebSpecification {
 
   firefoxDriver.get("http://localhost:8080/")
 
