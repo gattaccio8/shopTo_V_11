@@ -15,8 +15,6 @@ object ShopToBuild extends Build {
   ))
 }
 
-//testing local repo
-
 object Resolvers {
   val jettyRepo = "jetty repo" at "http://siasia.github.com/maven2"
 }
@@ -32,6 +30,9 @@ object BuildSettings {
     version := "1.0.0",
     scalaVersion := "2.9.1",
     retrieveManaged := false,
+
+    parallelExecution := false,
+    parallelExecution in Test := false,
 
     printHello <<= (baseDirectory) map {(aVar) => println("just a sample task") },
 

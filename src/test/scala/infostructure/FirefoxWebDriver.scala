@@ -4,6 +4,12 @@ import org.openqa.selenium.firefox.FirefoxDriver
 import code.acceptance.infrastructure.OnShutDown
 
 trait FirefoxWebDriver {
-  val fireFoxDriver = new FirefoxDriver
-  OnShutDown.execute(() => fireFoxDriver.close(), "-------- fireFoxDriver is closed --------")
+  Browser
+}
+
+object Browser {
+  println("----------------- firefox has opened -----------------")
+  val firefoxDriver = new FirefoxDriver
+  OnShutDown.execute(() => firefoxDriver.close(), "-------- fireFoxDriver is closed --------")
+
 }

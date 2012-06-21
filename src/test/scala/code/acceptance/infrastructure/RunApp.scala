@@ -70,7 +70,6 @@ object RunApp {
    startServer
 
    OnShutDown.execute(() => stopServer(), "-------- RunApp is stopped --------")
-   //stopServer
  }
 
 

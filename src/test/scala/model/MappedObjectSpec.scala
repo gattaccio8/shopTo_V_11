@@ -21,19 +21,19 @@ class MappedObjectSpec extends SpecificationWithJUnit with WebSpecification with
     }
 
     "populate the 'client' DB table" in {
-      fireFoxDriver.get("http://localhost:8080/registrationForm.html")
-      fireFoxDriver.findElementById("forenames").sendKeys("anyname")
-      fireFoxDriver.findElementById("submit").click()
+      firefoxDriver.get("http://localhost:8080/registrationForm.html")
+      firefoxDriver.findElementById("forenames").sendKeys("anyname")
+      firefoxDriver.findElementById("submit").click()
       val start = System.currentTimeMillis()
       var result = false
       while (!result && System.currentTimeMillis() - start < 5000) {
-        result = fireFoxDriver.getTitle.equals("App: test Home")
+        result = firefoxDriver.getTitle.equals("App: test Home")
         Thread.sleep(50)
       }
 
       val clients: List[Client] = Client.findAll
 //      println("MappObjSpec: " + Client.forenames + " ****************** ")
-//      fireFoxDriver.close()
+//      firefoxDriver.close()
       clients.length must_== 1
     }
   }
