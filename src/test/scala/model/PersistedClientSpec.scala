@@ -2,21 +2,21 @@ package model
 
 import org.specs2.mutable.SpecificationWithJUnit
 import net.liftweb.mapper._
-import code.model.{Client, MappedObject}
+import code.model.{PersistedClient, DBConnection}
 import code.acceptance.infrastructure.WebSpecification
 
-class MappedObjectSpec extends SpecificationWithJUnit with WebSpecification {
+class PersistedClientSpec extends SpecificationWithJUnit with WebSpecification {
 
   "MappedObject object" should {
     "connect to the h2 DB" in {
-      MappedObject.init
+      DBConnection.init
       DB.use(DefaultConnectionIdentifier) {
         conn => true
       }
     }
 
     "create a table 'client'" in {
-      Client.dbTableName must_== "clients"
+      PersistedClient.dbTableName must_== "clients"
     }
 
     "populate the 'client' DB table" in {
@@ -30,9 +30,7 @@ class MappedObjectSpec extends SpecificationWithJUnit with WebSpecification {
         Thread.sleep(50)
       }
 
-      val clients: List[Client] = Client.findAll
-//      println("MappObjSpec: " + Client.forenames + " ****************** ")
-//      firefoxDriver.close()
+      val clients: List[PersistedClient] = PersistedClient.findAll
       clients.length must_== 1
     }
   }

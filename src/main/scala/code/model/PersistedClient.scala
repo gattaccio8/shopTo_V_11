@@ -2,9 +2,9 @@ package code.model
 
 import net.liftweb.mapper._
 
-class Client extends LongKeyedMapper[Client] with CreatedUpdated with IdPK {
+class PersistedClient extends LongKeyedMapper[PersistedClient] with CreatedUpdated with IdPK {
 
-  def getSingleton = Client
+  def getSingleton = PersistedClient
 
   object forenames extends MappedString(this, 255)
   object surname extends MappedString(this, 255)
@@ -18,11 +18,11 @@ class Client extends LongKeyedMapper[Client] with CreatedUpdated with IdPK {
 
 }
 
-object Client extends Client with LongKeyedMetaMapper[Client] {
+object PersistedClient extends PersistedClient with LongKeyedMetaMapper[PersistedClient] {
 
   def apply(forenames: String, surname: String, email: String, password: String,
             securityAnswer: String, address: String, postCode: String, country: String, heardAboutUs: String) = {
-    Client.create
+    PersistedClient.create
       .forenames(forenames)
       .surname(surname)
       .email(email)

@@ -2,7 +2,7 @@ package code.snippet
 
 import net.liftweb.http.SHtml._
 import net.liftweb.util.Helpers._
-import code.model.Client
+import code.model.PersistedClient
 import net.liftweb.http.{SessionVar, S}
 
 object RegistrationForm extends SessionVar {
@@ -23,7 +23,7 @@ object RegistrationForm extends SessionVar {
         //S.error("too short!!")
         S.redirectTo("/")
       else {
-        val client = Client(forenames, surname, email, password, securityAnswer, address, postCode, country, heardAboutUs)
+        val client = PersistedClient(forenames, surname, email, password, securityAnswer, address, postCode, country, heardAboutUs)
         client.save()
         S.redirectTo("/index.html")
       }

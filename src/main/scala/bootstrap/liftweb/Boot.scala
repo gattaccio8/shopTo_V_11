@@ -18,8 +18,8 @@ class Boot {
   def boot {
 
     //starts the DB connection
-    MappedObject.init
-    Schemifier.schemify(true, Schemifier.infoF _, Client)
+    DBConnection.init
+    Schemifier.schemify(true, Schemifier.infoF _, PersistedClient)
 
     // Make a transaction span the whole HTTP request
     S.addAround(DB.buildLoanWrapper)
