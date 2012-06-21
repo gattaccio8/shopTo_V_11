@@ -15,6 +15,8 @@ object ShopToBuild extends Build {
   ))
 }
 
+//testing local repo
+
 object Resolvers {
   val jettyRepo = "jetty repo" at "http://siasia.github.com/maven2"
 }
