@@ -30,15 +30,12 @@ class Boot {
     // Build SiteMap
     def sitemap = SiteMap(
       Menu.i("Home") / "index" >> User.AddUserMenusAfter, // the simple way to declare a menu
-
       // more complex because this menu allows anything in the
       // /static path to be visible
-      Menu(Loc("Static", Link(List("static"), true, "/static/index"),
-	       "Static Content")),
-
+      Menu(Loc("Static", Link(List("static"), true, "/static/index"), "Static Content")),
       //Adds the registartionForm.html to the sitemap in order to be visible.
-      Menu(Loc("RegistrationForm", Link(List("registrationForm"), true, "/registrationForm"),
-	       "RegistrationForm"))
+      Menu(Loc("RegistrationForm", Link(List("registrationForm"), true, "/registrationForm"), "RegistrationForm")),
+      Menu(Loc("embedreg", Link(List("embedreg"), true, "/embedreg"), "embedreg"))
     )
 
     def sitemapMutators = User.sitemapMutator

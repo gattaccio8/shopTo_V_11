@@ -37,10 +37,10 @@ object BuildSettings {
     printHello <<= (baseDirectory) map {(aVar) => println("just a sample task") },
 
     reallyClean <<= (baseDirectory) map { (theBase) =>
-    print("**** This is really-clean task ****")
-    IO.delete((theBase / "target"))
-    IO.delete((theBase / "warfile"))
-    //    IO.delete(((theBase / "logs") * "*.log").get)
+      print("**** This is really-clean task ****")
+      IO.delete((theBase / "target"))
+      IO.delete((theBase / "warfile"))
+      //    IO.delete(((theBase / "logs") * "*.log").get)
   },
 
   blah <<= (baseDirectory) map { (theBase) =>

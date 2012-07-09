@@ -7,7 +7,7 @@ import code.acceptance.infrastructure.WebSpecification
 
 class PersistedClientSpec extends SpecificationWithJUnit with WebSpecification {
 
-  "MappedObject object" should {
+  "DBConnection object" should {
     "connect to the h2 DB" in {
       DBConnection.init
       DB.use(DefaultConnectionIdentifier) {
