@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo starting tests.....................
+echo I am NOT clean but starting tests already.....................
 
 ./sbt test
 
