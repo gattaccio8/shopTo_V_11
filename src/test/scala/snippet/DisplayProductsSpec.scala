@@ -21,7 +21,7 @@ class DisplayProductsSpec extends SpecificationWithJUnit with WebSpecification {
     }
 
     "display the item price" in {
-      val bool = firefoxDriver.findElementByClassName("td3").getText.equals("£35.79 GBP")
+      val bool = firefoxDriver.findElementByClassName("td3").getText.equals("£35.79 GBP")  //
       println(" result = " + firefoxDriver.findElementByClassName("td3").getText)
 //      firefoxDriver.close()
       bool
