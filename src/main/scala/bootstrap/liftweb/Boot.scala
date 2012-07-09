@@ -27,22 +27,15 @@ class Boot {
     // where to search snippet
     LiftRules.addToPackages("code")
 
-    // Build SiteMap
-    def sitemap = SiteMap(
-      Menu.i("Home") / "index" >> User.AddUserMenusAfter, // the simple way to declare a menu
-      // more complex because this menu allows anything in the
-      // /static path to be visible
-      Menu(Loc("Static", Link(List("static"), true, "/static/index"), "Static Content")),
-      //Adds the registartionForm.html to the sitemap in order to be visible.
-      Menu(Loc("RegistrationForm", Link(List("registrationForm"), true, "/registrationForm"), "RegistrationForm")),
-      Menu(Loc("embedreg", Link(List("embedreg"), true, "/embedreg"), "embedreg"))
-    )
+    val entries =
+      Menu(Loc("HomePage", "index" :: Nil, "Home Page", Hidden)) ::
+      //static path to be visible
+      Menu(Loc("Static", Link(List("static"), true, "/static/index"), "Static Content")) ::
+      Menu(Loc("RegistrationForm", "registrationForm" :: Nil , "registration form", Hidden)) ::
+      Menu(Loc("embedreg", "embedreg" :: Nil, "embedreg", Hidden)) ::
+      Nil
 
-    def sitemapMutators = User.sitemapMutator
-
-    // set the sitemap.  Note if you don't want access control for
-    // each page, just comment this line out.
-    LiftRules.setSiteMapFunc(() => sitemapMutators(sitemap))
+    LiftRules.setSiteMap(SiteMap(entries: _*))
 
     // Use jQuery 1.4
     LiftRules.jsArtifacts = net.liftweb.http.js.jquery.JQuery14Artifacts
