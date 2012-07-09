@@ -16,14 +16,11 @@ import code.model._
  */
 class Boot {
   def boot {
-
     //starts the DB connection
     DBConnection.init
     Schemifier.schemify(true, Schemifier.infoF _, PersistedClient)
-
     // Make a transaction span the whole HTTP request
     S.addAround(DB.buildLoanWrapper)
-
     // where to search snippet
     LiftRules.addToPackages("code")
 
@@ -36,27 +33,19 @@ class Boot {
       Nil
 
     LiftRules.setSiteMap(SiteMap(entries: _*))
+    LiftRules.jsArtifacts = net.liftweb.http.js.jquery.JQuery14Artifacts // Use jQuery 1.4
 
-    // Use jQuery 1.4
-    LiftRules.jsArtifacts = net.liftweb.http.js.jquery.JQuery14Artifacts
-
-    //Show the spinny image when an Ajax call starts
     LiftRules.ajaxStart =
-      Full(() => LiftRules.jsArtifacts.show("ajax-loader").cmd)
+      Full(() => LiftRules.jsArtifacts.show("ajax-loader").cmd) //Show the spinny image when an Ajax call starts
     
-    // Make the spinny image go away when it ends
     LiftRules.ajaxEnd =
-      Full(() => LiftRules.jsArtifacts.hide("ajax-loader").cmd)
+      Full(() => LiftRules.jsArtifacts.hide("ajax-loader").cmd) // Make the spinny image go away when it ends
 
-    // Force the request to be UTF-8
-    LiftRules.early.append(_.setCharacterEncoding("UTF-8"))
+    LiftRules.early.append(_.setCharacterEncoding("UTF-8")) // Force the request to be UTF-8
 
-    // What is the function to test if a user is logged in?
-    LiftRules.loggedInTest = Full(() => User.loggedIn_?)
+    LiftRules.loggedInTest = Full(() => User.loggedIn_?) // What is the function to test if a user is logged in?
 
-    // Use HTML5 for rendering
     LiftRules.htmlProperties.default.set((r: Req) =>
-    new Html5Properties(r.userAgent))
-
+    new Html5Properties(r.userAgent))               // Use HTML5 for rendering
   }
 }
