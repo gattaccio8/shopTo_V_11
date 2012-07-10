@@ -47,5 +47,7 @@ class Boot {
 
     LiftRules.htmlProperties.default.set((r: Req) =>
     new Html5Properties(r.userAgent))               // Use HTML5 for rendering
+
+    LiftRules.xhtmlValidator = Full(StrictXHTML1_0Validator) //validate the xhtml a displays error on browser if something wrong
   }
 }
