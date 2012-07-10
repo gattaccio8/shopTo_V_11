@@ -8,7 +8,7 @@ import Loc._
 import mapper._
 
 import code.model._
-import persistedobjects.{Supplier, Client}
+import persistedobjects.{Customer, Supplier, Client}
 
 
 /**
@@ -31,7 +31,7 @@ class Boot {
       Menu(Loc("Static", Link(List("static"), true, "/static/index"), "Static Content")) ::
       Menu(Loc("RegistrationForm", "registrationForm" :: Nil , "registration form", Hidden)) ::
       Menu(Loc("embedreg", "embedreg" :: Nil, "embedreg", Hidden)) ::
-      Nil
+      Customer.menus // Nil
 
     LiftRules.setSiteMap(SiteMap(entries: _*))
     LiftRules.jsArtifacts = net.liftweb.http.js.jquery.JQuery14Artifacts // Use jQuery 1.4
