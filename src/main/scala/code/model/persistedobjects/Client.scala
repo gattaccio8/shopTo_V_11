@@ -5,23 +5,14 @@ import net.liftweb.mapper._
 class Client extends LongKeyedMapper[Client] with CreatedUpdated with IdPK {
 
   def getSingleton = Client
-
   object forenames extends MappedString(this, 255)
-
   object surname extends MappedString(this, 255)
-
   object email extends MappedString(this, 255)
-
   object password extends MappedString(this, 255)
-
   object securityAnswer extends MappedString(this, 255)
-
   object address extends MappedString(this, 255)
-
   object postCode extends MappedString(this, 255)
-
   object country extends MappedString(this, 255)
-
   object heardAboutUs extends MappedString(this, 255)
 
 }
