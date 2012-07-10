@@ -3,7 +3,7 @@
 //import net.liftweb.mapper._
 //import net.liftweb.common.Full
 //
-//class PersistedAuction extends LongKeyedMapper[PersistedAuction] with IdPK with CreatedUpdated {
+//class Auction extends LongKeyedMapper[Auction] with IdPK with CreatedUpdated {
 //  def getSingleton = PersistedAuction
 //  object name extends MappedString(this, 150)
 //  object description extends MappedText(this)
@@ -14,12 +14,12 @@
 //  object permanent_link extends MappedString(this, 150)
 //  object is_closed extends MappedBoolean(this)
 //
-//  object supplier extends LongMappedMapper(this, PersistedSupplier) {
+//  object supplier extends LongMappedMapper(this, Supplier) {
 //    override def dbColumnName = "supplier_id"
 //
 //    override def validSelectValues =
-//      Full(PersistedSupplier.findMap(OrderBy(PersistedSupplier.name, Ascending)) {
-//        case s: PersistedSupplier => Full(s.id.is -> s.name.is)
+//      Full(Supplier.findMap(OrderBy(Supplier.name, Ascending)) {
+//        case s: Supplier => Full(s.id.is -> s.name.is)
 //      })
 //  }
 //}

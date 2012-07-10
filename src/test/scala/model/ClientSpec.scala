@@ -2,11 +2,11 @@ package model
 
 import org.specs2.mutable.SpecificationWithJUnit
 import net.liftweb.mapper._
-import code.model.persistedobjects.PersistedClient
+import code.model.persistedobjects.Client
 import code.model.DBConnection
 import code.acceptance.infrastructure.WebSpecification
 
-class PersistedClientSpec extends SpecificationWithJUnit with WebSpecification {
+class ClientSpec extends SpecificationWithJUnit with WebSpecification {
 
   "DBConnection object" should {
     "connect to the h2 DB" in {
@@ -17,7 +17,7 @@ class PersistedClientSpec extends SpecificationWithJUnit with WebSpecification {
     }
 
     "create a table 'client'" in {
-      PersistedClient.dbTableName must_== "clients"
+      Client.dbTableName must_== "clients"
     }
 
     "populate the 'client' DB table" in {
@@ -31,7 +31,7 @@ class PersistedClientSpec extends SpecificationWithJUnit with WebSpecification {
         Thread.sleep(50)
       }
 
-      val clients: List[PersistedClient] = PersistedClient.findAll
+      val clients: List[Client] = Client.findAll
       clients.length must_== 1
     }
   }

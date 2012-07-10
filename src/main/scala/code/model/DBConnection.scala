@@ -4,11 +4,11 @@ import net.liftweb.mapper.{DB , Schemifier}
 import net.liftweb.util.Props
 import net.liftweb.common.{Logger, Loggable}
 import net.liftweb.db.{DBLogEntry, DefaultConnectionIdentifier, StandardDBVendor}
-import persistedobjects.{PersistedSupplier, PersistedClient}
+import persistedobjects.{Supplier, Client}
 
 object DBConnection extends Loggable {
 
-  val models = PersistedClient :: PersistedSupplier :: Nil
+  val models = Client :: Supplier :: Nil
   val users = User :: Nil
 
   var vendor:Option[StandardDBVendor] = None
