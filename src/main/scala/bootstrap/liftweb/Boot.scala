@@ -19,7 +19,6 @@ class Boot {
   def boot {
     //starts the DB connection
     DBConnection.init
-    Schemifier.schemify(true, Schemifier.infoF _, Client, Supplier)
     // Make a transaction span the whole HTTP request
     S.addAround(DB.buildLoanWrapper)
     // where to search snippet
