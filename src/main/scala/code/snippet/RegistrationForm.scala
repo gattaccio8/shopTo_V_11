@@ -2,7 +2,7 @@ package code.snippet
 
 import net.liftweb.http.SHtml._
 import net.liftweb.util.Helpers._
-import code.model.PersistedClient
+import code.model.persistedobjects.PersistedClient
 import net.liftweb.http.{SessionVar, S}
 
 object RegistrationForm extends SessionVar {

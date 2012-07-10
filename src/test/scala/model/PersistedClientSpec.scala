@@ -2,7 +2,8 @@ package model
 
 import org.specs2.mutable.SpecificationWithJUnit
 import net.liftweb.mapper._
-import code.model.{PersistedClient, DBConnection}
+import code.model.persistedobjects.PersistedClient
+import code.model.DBConnection
 import code.acceptance.infrastructure.WebSpecification
 
 class PersistedClientSpec extends SpecificationWithJUnit with WebSpecification {

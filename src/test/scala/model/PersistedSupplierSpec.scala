@@ -1,7 +1,7 @@
 package model
 
 import org.specs2.mutable.SpecificationWithJUnit
-import code.model.PersistedSupplier
+import code.model.persistedobjects.PersistedSupplier
 
 class PersistedSupplierSpec extends SpecificationWithJUnit {
 

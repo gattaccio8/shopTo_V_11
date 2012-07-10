@@ -8,6 +8,7 @@ import Loc._
 import mapper._
 
 import code.model._
+import persistedobjects.{PersistedSupplier, PersistedClient}
 
 
 /**
@@ -18,7 +19,7 @@ class Boot {
   def boot {
     //starts the DB connection
     DBConnection.init
-    Schemifier.schemify(true, Schemifier.infoF _, PersistedClient)
+    Schemifier.schemify(true, Schemifier.infoF _, PersistedClient, PersistedSupplier)
     // Make a transaction span the whole HTTP request
     S.addAround(DB.buildLoanWrapper)
     // where to search snippet

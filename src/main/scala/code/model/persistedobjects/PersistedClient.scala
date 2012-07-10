@@ -1,4 +1,4 @@
-package code.model
+package code.model.persistedobjects
 
 import net.liftweb.mapper._
 
@@ -7,13 +7,21 @@ class PersistedClient extends LongKeyedMapper[PersistedClient] with CreatedUpdat
   def getSingleton = PersistedClient
 
   object forenames extends MappedString(this, 255)
+
   object surname extends MappedString(this, 255)
+
   object email extends MappedString(this, 255)
+
   object password extends MappedString(this, 255)
+
   object securityAnswer extends MappedString(this, 255)
+
   object address extends MappedString(this, 255)
+
   object postCode extends MappedString(this, 255)
+
   object country extends MappedString(this, 255)
+
   object heardAboutUs extends MappedString(this, 255)
 
 }
@@ -33,6 +41,7 @@ object PersistedClient extends PersistedClient with LongKeyedMetaMapper[Persiste
       .country(country)
       .heardAboutUs(heardAboutUs)
   }
+
   override def dbTableName = "clients"
 }
 
