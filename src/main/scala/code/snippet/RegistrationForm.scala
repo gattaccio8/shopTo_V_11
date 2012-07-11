@@ -3,9 +3,9 @@ package code.snippet
 import net.liftweb.http.SHtml._
 import net.liftweb.util.Helpers._
 import code.model.persistedobjects.Client
-import net.liftweb.http.{SessionVar, S}
+import net.liftweb.http.{SHtml, RequestVar, S}
 
-object RegistrationForm extends SessionVar {
+object RegistrationForm {
   def render = {
 
     var forenames = ""
@@ -19,10 +19,11 @@ object RegistrationForm extends SessionVar {
     var heardAboutUs = ""
 
     def process() {
-      if (false)
-        //S.error("too short!!")
-        S.redirectTo("/")
-      else {
+      if (forenames.equals("")) {
+        println("************* " + surname + " *****************")
+//        "#surname" #> text (surname, surname = _ , "id" -> "surname")
+        S.redirectTo("/registrationForm.html")
+      } else {
         val client = Client(forenames, surname, email, password, securityAnswer, address, postCode, country, heardAboutUs)
         client.save()
         S.redirectTo("/index.html")
