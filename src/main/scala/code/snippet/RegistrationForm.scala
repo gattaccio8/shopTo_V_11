@@ -3,7 +3,10 @@ package code.snippet
 import net.liftweb.http.SHtml._
 import net.liftweb.util.Helpers._
 import code.model.persistedobjects.Client
-import net.liftweb.http.{SHtml, RequestVar, S}
+import net.liftweb.http.{StatefulSnippet, RequestVar, S}
+import net.liftweb.http.js.JsCmds
+import xml.Text
+import scala.collection.mutable.Map
 
 object RegistrationForm {
   def render = {
@@ -18,11 +21,9 @@ object RegistrationForm {
     var country = ""
     var heardAboutUs = ""
 
-    def process() {
+    def process() = {
       if (forenames.equals("")) {
-        println("************* " + surname + " *****************")
-//        "#surname" #> text (surname, surname = _ , "id" -> "surname")
-        S.redirectTo("/registrationForm.html")
+        JsCmds.SetHtml("forenamesError", Text("monkey"))
       } else {
         val client = Client(forenames, surname, email, password, securityAnswer, address, postCode, country, heardAboutUs)
         client.save()
@@ -30,15 +31,15 @@ object RegistrationForm {
       }
     }
 
-    "#forenames" #> text (forenames, forenames = _ , "id" -> "forenames") &
-    "#surname" #> text (surname, surname = _ , "id" -> "surname") &
-    "#email" #> text (email, email = _ , "id" -> "email") &
-    "#password" #> text (password, password = _ , "id" -> "password") &
-    "#securityAnswer" #> text (securityAnswer, securityAnswer = _ , "id" -> "securityAnswer") &
-    "#address" #> text (address, address = _ , "id" -> "address") &
-    "#postCode" #> text (postCode, postCode = _ , "id" -> "postCode") &
-    "#country" #> text (country, country = _ , "id" -> "country") &
-    "#heardAboutUs" #> text (heardAboutUs, heardAboutUs = _ , "id" -> "heardAboutUs") &
+    "#forenames" #> text(forenames, forenames = _ , "id" -> "forenames") &
+    "#surname" #> text(surname, surname = _ , "id" -> "surname") &
+    "#email" #> text(email, email = _ , "id" -> "email") &
+    "#password" #> text(password, password = _ , "id" -> "password") &
+    "#securityAnswer" #> text(securityAnswer, securityAnswer = _ , "id" -> "securityAnswer") &
+    "#address" #> text(address, address = _ , "id" -> "address") &
+    "#postCode" #> text(postCode, postCode = _ , "id" -> "postCode") &
+    "#country" #> text(country, country = _ , "id" -> "country") &
+    "#heardAboutUs" #> text(heardAboutUs, heardAboutUs = _ , "id" -> "heardAboutUs") &
     "#submit" #>  ajaxSubmit("Register", () => {
       process()
     })

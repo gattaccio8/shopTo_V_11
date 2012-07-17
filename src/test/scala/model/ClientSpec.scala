@@ -20,7 +20,7 @@ class ClientSpec extends SpecificationWithJUnit with WebSpecification {
       Client.dbTableName must_== "clients"
     }
 
-    "populate the 'client' DB table" in {
+    "persist the 'client' into DB table" in {
       firefoxDriver.get("http://localhost:8080/registrationForm.html")
       firefoxDriver.findElementById("forenames").sendKeys("anyname")
       firefoxDriver.findElementById("submit").click()
