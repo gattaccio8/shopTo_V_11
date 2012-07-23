@@ -14,7 +14,7 @@ object RunApp {
 
   val testMode = "test"
   val productionMode = "production"
-  setRunningMode(testMode)
+  setRunningMode(productionMode)
 
   private def setRunningMode(runningMode: String) {
     System.setProperty("run.mode", runningMode)

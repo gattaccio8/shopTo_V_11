@@ -19,6 +19,7 @@ object DBConnection extends Loggable {
         println(Props.fileName + " " + Props.get("db.url") + " " + Props.get("db.user"))
         val dBVendor = new StandardDBVendor(Props.get("db.driver").open_!,
         Props.get("db.url").open_!, Props.get("db.user"), Props.get("db.password"))
+        println("************** " + Props.get("db.user") + " " + Props.get("db.password"))
         DB.defineConnectionManager(DefaultConnectionIdentifier, dBVendor)
         Schemifier.schemify(true, Schemifier.infoF _, models.toArray: _*)
         addLogging
