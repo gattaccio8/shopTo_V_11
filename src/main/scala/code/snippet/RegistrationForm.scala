@@ -21,19 +21,10 @@ object RegistrationForm {
 
     def process() = {
       val client = Client(forenames, surname, email, password, address, postCode, country)
-      if(client.validate.length > 0) {
-        client.validate.foreach(e => println("e " + e.msg + " " + e.field))
-        JsCmds.SetHtml("forenamesError", Text("bbb"))
-      } else {
-        client.save
-        println(client.validate.length + " invoked")
-        JsCmds.Noop
+      client.validate match {
+        case Nil => client.save(); S.redirectTo("/index.html")
+        case error: List[FieldError] => JsCmds.SetHtml("forenamesError", Text("llllllll"))
       }
-//          client.validate match {
-//            case Nil => client.save(); S.redirectTo("/index.html")
-//            case error: List[FieldError] => JsCmds.SetHtml("forenamesError", Text("llllllll")); println(error.length + " invoked")
-//        }
-//      def test = JsCmds.SetHtml("forenamesError", Text("llllllll"))
     }
 
     "#forenames" #> text(forenames, forenames = _ , "id" -> "forenames") &
