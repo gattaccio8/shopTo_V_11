@@ -19,8 +19,8 @@ class Client extends LongKeyedMapper[Client] with CreatedUpdated with IdPK {
   object password extends MappedString(this, 255)
 
   object address extends MappedString(this, 255) {
-//      override def validations = valMinLen(1, {"address too short, dude!"}) _ :: super.validations
-//      override def defaultValue = "address"
+      override def validations = valMinLen(1, {"address too short, dude!"}) _ :: super.validations
+      override def defaultValue = "addressline1"
     }
 
   object postCode extends MappedString(this, 255)

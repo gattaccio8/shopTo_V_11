@@ -31,7 +31,7 @@ object RegistrationForm {
     "#surname" #> text(surname, surname = _ , "id" -> "surname") &
     "#email" #> text(email, email = _ , "id" -> "email") &
     "#password" #> text(password, password = _ , "id" -> "password") &
-    "#address" #> text(address, address = _ , "id" -> "address") &
+    "#addressline1" #> text(address, address = _ , "id" -> "addressline1") &
     "#postCode" #> text(postCode, postCode = _ , "id" -> "postCode") &
     "#country" #> text(country, country = _ , "id" -> "country") &
     "#submit" #>  ajaxSubmit("Register", () => {
