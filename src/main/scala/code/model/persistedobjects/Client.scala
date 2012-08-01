@@ -1,6 +1,7 @@
 package code.model.persistedobjects
 
 import net.liftweb.mapper._
+import net.liftweb.http.S
 
 class Client extends LongKeyedMapper[Client] with CreatedUpdated with IdPK {
   def getSingleton = Client
@@ -15,16 +16,26 @@ class Client extends LongKeyedMapper[Client] with CreatedUpdated with IdPK {
     override def defaultValue = "surname"
   }
 
-  object email extends MappedString(this, 255)
-  object password extends MappedString(this, 255)
+  object email extends MappedString(this, 255) {
+    override def defaultValue = "email"
+  }
+
+  object password extends MappedString(this, 255) {
+    override def defaultValue = "password"
+  }
 
   object address extends MappedString(this, 255) {
       override def validations = valMinLen(1, {"address too short, dude!"}) _ :: super.validations
       override def defaultValue = "addressline1"
     }
 
-  object postCode extends MappedString(this, 255)
-  object country extends MappedString(this, 255)
+  object postCode extends MappedString(this, 255) {
+    override def defaultValue = "postCode"
+  }
+
+  object country extends MappedString(this, 255) {
+    override def defaultValue = "country"
+  }
 }
 
 object Client extends Client with LongKeyedMetaMapper[Client] {
