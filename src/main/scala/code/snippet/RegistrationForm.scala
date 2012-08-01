@@ -9,6 +9,7 @@ import xml.Text
 import scala.collection.mutable.Map
 import net.liftweb.util.FieldError
 import net.liftweb.common.Full
+import net.liftweb.http.js.JsCmds.{JsFor, JsDoWhile}
 
 object RegistrationForm {
   def render = {
@@ -22,18 +23,10 @@ object RegistrationForm {
 
     def process() = {
       val client = Client(forenames, surname, email, password, address, postCode, country)
-      client.validate.map(v => println(v))
-      client.forenames.validate match {
+      client.validate match {
         case Nil => client.save(); S.redirectTo("/index.html")
-        case error: List[FieldError] => error.map(e => JsCmds.SetHtml(e.field.uniqueFieldId.get, e.msg))
+        case error: List[FieldError] => error.map(e => JsCmds.SetHtml(e.field.uniqueFieldId.get, e.msg)).fold(JsCmds.Noop)((acc, n) => acc & n)
       }
-
-      // error.map(m => println(m.field.uniqueFieldId.get))  => clients_forenames
-
-//      client.surname.validate match {
-//        case Nil => client.save(); S.redirectTo("/index.html")
-//        case error: List[FieldError] => JsCmds.SetHtml("surnameError", Text("llllllll"))
-//      }
     }
 
     "#forenames" #> text(forenames, forenames = _ , "id" -> "forenames") &
