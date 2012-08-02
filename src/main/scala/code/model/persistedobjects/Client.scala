@@ -1,7 +1,8 @@
 package code.model.persistedobjects
 
 import net.liftweb.mapper._
-import net.liftweb.http.S
+import net.liftweb.util.FieldError
+import sun.rmi.rmic.iiop.ValueType
 
 class Client extends LongKeyedMapper[Client] with CreatedUpdated with IdPK {
   def getSingleton = Client
@@ -23,7 +24,14 @@ class Client extends LongKeyedMapper[Client] with CreatedUpdated with IdPK {
   }
 
   object password extends MappedString(this, 255) {
+    override def validations = valMinLen(1, {"Password cannot be empty."}) _ :: valMinLen(4, {"Password too weak, must be 4 alphanumerics"}) _ :: super.validations
     override def defaultValue = "password"
+  }
+
+  object password2 extends MappedString(this, 255) {
+    override def validations = mustMatch _ :: super.validations
+    override def defaultValue = "password2"
+    def mustMatch(name : String) = if(!name.equals(password.toString())) List(FieldError(this, "Passwords do not match.")) else List[FieldError]()
   }
 
   object address extends MappedString(this, 255) {
@@ -38,17 +46,20 @@ class Client extends LongKeyedMapper[Client] with CreatedUpdated with IdPK {
   object country extends MappedString(this, 255) {
     override def defaultValue = "country"
   }
+
+
 }
 
 object Client extends Client with LongKeyedMetaMapper[Client] {
 
-  def apply(forenames: String, surname: String, email: String, password: String,
+  def apply(forenames: String, surname: String, email: String, password: String, password2: String,
               address: String, postCode: String, country: String) = {
     Client.create
       .forenames(forenames)
       .surname(surname)
       .email(email)
       .password(password)
+      .password2(password2)
       .address(address)
       .postCode(postCode)
       .country(country)
