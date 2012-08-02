@@ -7,16 +7,18 @@ class Client extends LongKeyedMapper[Client] with CreatedUpdated with IdPK {
   def getSingleton = Client
 
   object forenames extends MappedString(this, 255) {
-    override def validations = valMinLen(1, {"Name too short, dude!"}) _ :: super.validations
+    override def validations = valMinLen(1, {"Name cannot be empty."}) _ :: valMaxLen(10, {"Name too long."}) _ :: super.validations
     override def defaultValue = "forenames"
   }
 
   object surname extends MappedString(this, 255) {
-    override def validations = valMinLen(1, {"surname too short, dude!"}) _ :: super.validations
+    override def validations = valMinLen(1, {"Surname cannot be empty."}) _ :: super.validations
     override def defaultValue = "surname"
   }
 
-  object email extends MappedString(this, 255) {
+  object email extends MappedEmail(this, 255) {
+    override def validations = valRegex(MappedEmail.emailPattern, ("Invalid email address")) _ :: super.validations
+//    override def setFilter = notNull _ :: toLower _ :: trim _ :: super.setFilter
     override def defaultValue = "email"
   }
 
@@ -25,7 +27,7 @@ class Client extends LongKeyedMapper[Client] with CreatedUpdated with IdPK {
   }
 
   object address extends MappedString(this, 255) {
-      override def validations = valMinLen(1, {"address too short, dude!"}) _ :: super.validations
+      override def validations = valMinLen(1, {"Address cannot be empty."}) _ :: super.validations
       override def defaultValue = "addressline1"
     }
 
