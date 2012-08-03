@@ -5,11 +5,7 @@ import net.liftweb.util.Helpers._
 import code.model.persistedobjects.Client
 import net.liftweb.http.S
 import net.liftweb.http.js.JsCmds
-import xml.Text
-import scala.collection.mutable.Map
 import net.liftweb.util.FieldError
-import net.liftweb.common.Full
-import net.liftweb.http.js.JsCmds.{JsFor, JsDoWhile}
 
 object RegistrationForm {
   def render = {
