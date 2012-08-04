@@ -2,6 +2,6 @@
 
 echo creating directory for WAR file.....................
 
-./sbt create-directory
+./sbt.sh create-directory
 
 echo .................theBase warfile CREATED

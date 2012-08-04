@@ -36,9 +36,28 @@ class ClientSpec extends SpecificationWithJUnit with WebSpecification {
         result = firefoxDriver.getTitle.equals("App: test Home")
         Thread.sleep(50)
       }
-
       val clients: List[Client] = Client.findAll
       clients.length must_== 1
     }
+
+//    "do not persist the 'client if NOT validated" {
+//      firefoxDriver.get("http://localhost:8080/registrationForm.html")
+//      firefoxDriver.findElementById("forenames").sendKeys("anyname")
+//      firefoxDriver.findElementById("surname").sendKeys("gat")
+//      firefoxDriver.findElementById("addressline1").sendKeys("")
+//      firefoxDriver.findElementById("email").sendKeys("gattaccio8hotmail.com")
+//      firefoxDriver.findElementById("password").sendKeys("mon")
+//      firefoxDriver.findElementById("password2").sendKeys("key")
+//      firefoxDriver.findElementById("postCode").sendKeys("SW15 P3")
+//      firefoxDriver.findElementById("submit").click()
+//      val start = System.currentTimeMillis()
+//      var result = false
+//      while (!result && System.currentTimeMillis() - start < 5000) {
+//        result = firefoxDriver.getTitle.equals("App: test Home")
+//        Thread.sleep(50)
+//      }
+//        val client: List[Client] = Client.findAll
+//        clients.length must_== 0
+//    }
   }
 }

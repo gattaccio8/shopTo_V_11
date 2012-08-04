@@ -2,6 +2,6 @@
 
 echo I am NOT clean but starting tests already.....................
 
-./sbt test
+./sbt.sh test
 
 echo .................all tested

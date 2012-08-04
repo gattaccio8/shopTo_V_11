@@ -2,6 +2,6 @@
 
 echo cleaning up.....................
 
-./sbt really-clean test
+./sbt.sh really-clean test
 
 echo .................all tested
