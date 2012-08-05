@@ -28,7 +28,7 @@ class ClientSpec extends SpecificationWithJUnit with WebSpecification {
       firefoxDriver.findElementById("email").sendKeys("gattaccio8@hotmail.com")
       firefoxDriver.findElementById("password").sendKeys("monkey")
       firefoxDriver.findElementById("password2").sendKeys("monkey")
-      firefoxDriver.findElementById("postCode").sendKeys("S1W 3P3")
+      firefoxDriver.findElementById("postCode").sendKeys("SW15 3PL")
       firefoxDriver.findElementById("submit").click()
       val start = System.currentTimeMillis()
       var result = false
