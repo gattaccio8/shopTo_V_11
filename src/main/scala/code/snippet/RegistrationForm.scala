@@ -15,11 +15,13 @@ object RegistrationForm {
     var password = ""
     var password2 = ""
     var address = ""
+    var address2 = ""
+    var city = ""
     var postCode = ""
     var country = ""
 
     def process() = {
-      val client = Client(forenames, surname, email, password, password2, address, postCode, country)
+      val client = Client(forenames, surname, email, password, password2, address, address2, city, postCode, country)
       client.validate match {
         case Nil => client.save(); S.redirectTo("/index.html")
         case error: List[FieldError] => error.map(e => JsCmds.SetHtml(e.field.uniqueFieldId.get, e.msg)).fold(JsCmds.Noop)((acc, n) => acc & n)
@@ -32,6 +34,8 @@ object RegistrationForm {
     "#password" #> text(password, password = _ , "id" -> "password") &
     "#password2" #> text(password2, password2 = _ , "id" -> "password2") &
     "#addressline1" #> text(address, address = _ , "id" -> "addressline1") &
+    "#addressline2" #> text(address2, address2 = _ , "id" -> "addressline2") &
+    "#city" #> text(city, city = _ , "id" -> "city") &
     "#postCode" #> text(postCode, postCode = _ , "id" -> "postCode") &
     "#country" #> text(country, country = _ , "id" -> "country") &
     "#submit" #>  ajaxSubmit("Register", () => {
