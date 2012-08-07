@@ -1,10 +1,12 @@
 package code.acceptance.infrastructure
 
-import infostructure.Browser
+import infrastructure.Browser
 
 trait WebSpecification {
   WebSpecificationSuite
-  val firefoxDriver = Browser.firefoxDriver
+
+  val browser = Browser
+  val firefoxDriver = browser.firefoxDriver
 }
 
 
