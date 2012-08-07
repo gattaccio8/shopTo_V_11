@@ -1,4 +1,4 @@
-package snippet
+package code.snippet
 
 import org.specs2.mutable.SpecificationWithJUnit
 import code.acceptance.infrastructure.WebSpecification
