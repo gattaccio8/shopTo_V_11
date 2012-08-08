@@ -7,7 +7,7 @@ class DisplayProductsSpec extends SpecificationWithJUnit with HomeDriver {
 
   "index page" should {
     "display the products list" in {
-      firefoxDriver.getTitle must_==  "Home Page"
+      assertIsHomePage
       firefoxDriver.findElementByClassName("products").isDisplayed
     }
 
