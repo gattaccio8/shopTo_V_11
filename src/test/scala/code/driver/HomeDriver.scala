@@ -7,7 +7,8 @@ trait HomeDriver extends WebSpecification {
   HomeDriver
 
   def assertIsHomePage = firefoxDriver.getTitle.equals("Home Page")
-  def assertHasUsernameField = firefoxDriver.findElementById("username").isDisplayed
+  def assertUsernameFieldExist = firefoxDriver.findElementById("username").isDisplayed
+  def assertPasswordFieldExist = firefoxDriver.findElementById("password").isDisplayed
 }
 
 object HomeDriver extends HomeDriver {
