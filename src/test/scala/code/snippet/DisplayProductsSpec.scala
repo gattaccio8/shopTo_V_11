@@ -1,15 +1,13 @@
 package code.snippet
 
 import org.specs2.mutable.SpecificationWithJUnit
-import code.acceptance.infrastructure.WebSpecification
+import code.driver.HomeDriver
 
-class DisplayProductsSpec extends SpecificationWithJUnit with WebSpecification {
-
-  firefoxDriver.get("http://localhost:8080/")
+class DisplayProductsSpec extends SpecificationWithJUnit with HomeDriver {
 
   "index page" should {
     "display the products list" in {
-      firefoxDriver.getTitle.equals("App: test Home")
+      firefoxDriver.getTitle must_==  "Home Page"
       firefoxDriver.findElementByClassName("products").isDisplayed
     }
 

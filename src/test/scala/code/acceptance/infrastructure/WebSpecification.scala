@@ -13,7 +13,5 @@ trait WebSpecification {
 object WebSpecificationSuite {
   messageOut
   RunApp
-
   private def messageOut = println("I am web specification")
 }
-
