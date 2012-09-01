@@ -5,6 +5,6 @@ object ListOfProducts {
 }
 
 
-class Product(var name: String,var price: String, var currency:String, var image: String) {
+case class Product(var name: String,var price: String, var currency:String, var image: String) {
 
 }

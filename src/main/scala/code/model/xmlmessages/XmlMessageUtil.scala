@@ -1,7 +1,6 @@
 package code.model.xmlmessages
 
 import java.io.File
-import io.Source
 import xml.{XML, NodeSeq}
 import code.model.{ListOfProducts, Product}
 
