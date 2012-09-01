@@ -3,7 +3,7 @@ package code.snippet
 import net.liftweb.http.SHtml._
 import net.liftweb.util.Helpers._
 import code.model.persistedobjects.Client
-import net.liftweb.http.S
+import net.liftweb.http.{SHtml, S}
 import net.liftweb.http.js.JsCmds
 import net.liftweb.util.FieldError
 
@@ -31,8 +31,8 @@ object RegistrationForm {
     "#forenames" #> text(forenames, forenames = _ , "id" -> "forenames") &
     "#surname" #> text(surname, surname = _ , "id" -> "surname") &
     "#email" #> text(email, email = _ , "id" -> "email") &
-    "#password" #> text(password, password = _ , "id" -> "password") &
-    "#password2" #> text(password2, password2 = _ , "id" -> "password2") &
+    "#password" #> SHtml.password(password, password = _ , "id" -> "password") &
+    "#password2" #> SHtml.password(password2, password2 = _ , "id" -> "password2") &
     "#addressline1" #> text(address, address = _ , "id" -> "addressline1") &
     "#addressline2" #> text(address2, address2 = _ , "id" -> "addressline2") &
     "#city" #> text(city, city = _ , "id" -> "city") &
