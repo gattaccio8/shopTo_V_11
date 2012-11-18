@@ -11,7 +11,7 @@ object ShopToBuild extends Build {
 
   lazy val root = Project(id = "shopTo_V_11", base = file("."), settings = buildSettings ++ webSettings ++ Seq(
   resolvers := Seq(jettyRepo, Classpaths.typesafeResolver),
-  libraryDependencies ++= lift ++ jetty ++ Seq(junit, selenium, spec2, h2, httpComponent)
+  libraryDependencies ++= lift ++ jetty ++ seleniumDrivers ++ Seq(junit, spec2, h2, httpComponent)
   ))
 }
 
@@ -62,12 +62,18 @@ object Dependency {
   val spec2Version = "1.6.1"
   val h2Version = "1.2.147"
   val httpclientVersion = "4.0.2"
+  val chromeDriverVersion = "2.25.0"
 
   val junit = "junit" % "junit" % junitVersion % "test"
-  val selenium = "org.seleniumhq.selenium" % "selenium-firefox-driver" % seleniumVersion
   val spec2 = "org.specs2" %% "specs2" % spec2Version % "test"
   val h2 = "com.h2database" % "h2" % h2Version
   val httpComponent = "org.apache.httpcomponents" % "httpclient" % httpclientVersion
+
+  val seleniumDrivers =
+    Seq(
+      "org.seleniumhq.selenium" % "selenium-firefox-driver" % seleniumVersion,
+      "org.seleniumhq.selenium" % "selenium-chrome-driver" % chromeDriverVersion
+  )
 
   val jetty =
     Seq (
