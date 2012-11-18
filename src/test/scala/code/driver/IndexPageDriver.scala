@@ -3,14 +3,14 @@ package code.driver
 import code.acceptance.infrastructure.WebSpecification
 
 
-trait HomeDriver extends WebSpecification {
-  HomeDriver
+trait IndexPageDriver extends WebSpecification {
+  IndexPageDriver
 
   def assertIsHomePage = firefoxDriver.getTitle.equals("Home Page")
   def assertUsernameFieldExist = firefoxDriver.findElementById("username").isDisplayed
   def assertPasswordFieldExist = firefoxDriver.findElementById("password").isDisplayed
 }
 
-object HomeDriver extends HomeDriver {
+object IndexPageDriver extends IndexPageDriver {
   firefoxDriver.get("http://localhost:8080/")
 }

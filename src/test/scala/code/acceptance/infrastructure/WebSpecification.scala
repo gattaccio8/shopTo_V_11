@@ -7,6 +7,7 @@ trait WebSpecification {
 
   val browser = Browser
   val firefoxDriver = browser.firefoxDriver
+//  val firefoxDriver = browser.chromeDriver
 }
 
 

@@ -1,9 +1,9 @@
 package code.snippet
 
 import org.specs2.mutable.SpecificationWithJUnit
-import code.driver.HomeDriver
+import code.driver.IndexPageDriver
 
-class DisplayProductsSpec extends SpecificationWithJUnit with HomeDriver {
+class DisplayProductsSpec extends SpecificationWithJUnit with IndexPageDriver {
 
   "index page" should {
     "display the products list" in {

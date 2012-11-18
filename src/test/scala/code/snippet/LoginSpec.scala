@@ -1,18 +1,14 @@
 package code.snippet
 
 import org.specs2.mutable.SpecificationWithJUnit
-import code.driver.HomeDriver
+import code.driver.IndexPageDriver
 
-class LoginSpec extends SpecificationWithJUnit with HomeDriver {
+class LoginSpec extends SpecificationWithJUnit with IndexPageDriver {
 
   "The Home page" should {
-    "contain the username field" in {
+    "contain the username and apssword fields" in {
       assertIsHomePage
       assertUsernameFieldExist
-    }
-
-    "contain the password field" in {
-      assertIsHomePage
       assertPasswordFieldExist
     }
   }
