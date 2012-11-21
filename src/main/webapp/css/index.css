@@ -4,14 +4,8 @@
     background-color: gray;
 }
 
-#links {
-    width: 15%;
-    vertical-align: top;
-}
-
-#forms {
-    width: 15%;
-    vertical-align: top;
+#header {
+    text-align: center;
 }
 
 #display {

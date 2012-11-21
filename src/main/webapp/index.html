@@ -1,19 +1,21 @@
-<lift:surround with="basic" at="content">
-     <table align ="center" cellpadding="1" width="950" border="1">
-            <thead>
-                <tr>
-                    <th colspan="3"><h1>H1 header</h1></th>
-                </tr>
-            </thead>
-            <tbody>
-                 <tr>
-					<td colspan="3">
-					<p>just a paragraph</p></td>
-	        	</tr>
-                <tr>
-                    <td  id="links">
-                        <p>just some contents</p>
-                    </td>
+<lift:surround with="basic" at="content" xmlns="http://www.w3.org/1999/html">
+            <body>
+              <div class="container">
+                <div class="row-fluid">
+                   <div class="span8">
+                       <form class="form-inline" action="">
+                           <input id="username" type="text" value="username">
+                           <input id="password" type="password" value="password">
+                           <button type="submit" class="btn">Login</button>
+                       </form>
+                   </div>
+                    <div class="span4">
+                        <form class="form-inline lift:OnSubmit?form=post" id="form">
+                            <button type="submit" class="btn">SignUp</button>
+                        </form>
+                    </div>
+                </div>
+              </div>
 
                     <td id="display">
 
@@ -27,21 +29,8 @@
                         </table>
                     </lift:comet>
                     </td>
-
-                    <td id="forms">
-                        <div>
-                            <form class="lift:OnSubmit?form=post">
-                                <input type="submit" value="SignUp" />
-                            </form>
-                        </div>
-                        <div><label>username</label></div>
-                        <div><input id="username" type="text"></div>
-
-                        <div><label>password</label></div>
-                        <div><input id="password" type="password"></div>
-                    </td>
                 </tr>
-            </tbody>
-        </table>
+
+            </body>
 </lift:surround>
 

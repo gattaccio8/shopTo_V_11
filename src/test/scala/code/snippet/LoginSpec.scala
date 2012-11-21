@@ -6,7 +6,7 @@ import code.driver.IndexPageDriver
 class LoginSpec extends SpecificationWithJUnit with IndexPageDriver {
 
   "The Home page" should {
-    "contain the username and apssword fields" in {
+    "contain the username and password fields" in {
       assertIsHomePage
       assertUsernameFieldExist
       assertPasswordFieldExist
