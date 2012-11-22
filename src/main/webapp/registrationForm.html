@@ -1,68 +1,68 @@
 <lift:surround with="basic" at="registrationForm">
    <lift:bind-at name="title">Registration Form</lift:bind-at>
-    <form class="lift:form.ajax">
-        <div class="lift:RegistrationForm">
-         <table>
-             <tr>
-                <td><label class="text_label">Forenames *</label></td>
-                <td><input id="forenames" type="text"></td>
-                <td id="clients_forenames"></td>
-             </tr>
-             <tr>
-                <td><label class="text_label">Surname *</label></td>
-                <td><input id="surname" type="text"></td>
-                 <td id="clients_surname"></td>
-             </tr>
-             <tr>
-                <td><label class="text_label">email *</label></td>
-                <td><input id="email" type="text"></td>
-                <td id="clients_email"></td>
-             </tr>
-             <tr>
-                <td><label class="text_label">password * (min 4 chars)</label></td>
-                <td><input id="password" type="password"></td>
-                <td id="clients_password"></td>
-             </tr>
-             <tr>
-                <td><label class="text_label">re-type password *</label></td>
-                <td><input id="password2" type="password"></td>
-                 <td id="clients_password2"></td>
-             </tr>
-             <tr>
-                <td><h2>Credit card address</h2></td>
-             </tr>
-            <tr>
-                <td><label class="text_label">address line 1 *</label></td>
-                <td><input id="addressline1" type="text"></td>
-                <td id="clients_address"></td>
-             </tr>
-             <tr>
-                <td><label class="text_label">address line 2 *</label></td>
-                <td><input id="addressline2" type="text"></td>
-                 <td id="clients_address2"></td>
-             </tr>
-             <tr>
-                <td><label class="text_label">City/Town *</label></td>
-                <td><input id="city" type="text"></td>
-                <td id="clients_city"></td>
-             </tr>
-             <tr>
-                <td><label class="text_label">Post code *</label></td>
-                <td><input id="postCode" type="text"></td>
-                 <td id="clients_postCode"></td>
-             </tr>
-             <tr>
-                <td><label class="text_label">Country *</label></td>
-                <td><input id="country" type="text"></td>
-                <td id="countryError"></td>
-             </tr>
-            <tr>
-                <td><input type="submit" id="submit" /></td>
-            </tr>
-         </table>
-        </div>
-        <div id="feed"></div>
-    </form>
+      <div class="container-fluid">
+        <form class="lift:form.ajax">
+            <div class="lift:RegistrationForm">
+                 <div>
+                    <div><label class="text_label">Forenames *</label></div>
+                    <div><input id="forenames" type="text"></div>
+                    <div id="clients_forenames"></div>
+                 </div>
+                 <div>
+                    <div><label class="text_label">Surname *</label></div>
+                    <div><input id="surname" type="text"></div>
+                    <div id="clients_surname"></div>
+                 </div>
+                 <div>
+                    <div><label class="text_label">email *</label></div>
+                    <div><input id="email" type="text"></div>
+                    <div id="clients_email"></div>
+                 </div>
+                 <div>
+                    <div><label class="text_label">password * (min 4 chars)</label></div>
+                    <div><input id="password" type="password"></div>
+                    <div id="clients_password"></div>
+                 </div>
+                 <div>
+                    <div><label class="text_label">re-type password *</label></div>
+                    <div><input id="password2" type="password"></div>
+                    <div id="clients_password2"></div>
+                 </div>
+                 <div>
+                    <div><h2>Credit card address</h2></div>
+                 </div>
+                <div>
+                    <div><label class="text_label">address line 1 *</label></div>
+                    <div><input id="addressline1" type="text"></div>
+                    <div id="clients_address"></div>
+                 </div>
+                 <div>
+                    <div><label class="text_label">address line 2 *</label></div>
+                    <div><input id="addressline2" type="text"></div>
+                     <div id="clients_address2"></div>
+                 </div>
+                 <div>
+                    <div><label class="text_label">City/Town *</label></div>
+                    <div><input id="city" type="text"></div>
+                    <div id="clients_city"></div>
+                 </div>
+                 <div>
+                    <div><label class="text_label">Post code *</label></div>
+                    <div><input id="postCode" type="text"></div>
+                    <div id="clients_postCode"></div>
+                 </div>
+                 <div>
+                    <div><label class="text_label">Country *</label></div>
+                    <div><input id="country" type="text"></div>
+                    <div id="countryError"></div>
+                 </div>
+                <div>
+                    <div><input type="submit" id="submit" /></div>
+                </div>
+            </div>
+            <div id="feed"></div>
+        </form>
+      </div>
 </lift:surround>
 
 
