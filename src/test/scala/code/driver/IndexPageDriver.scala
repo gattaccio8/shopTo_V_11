@@ -9,6 +9,7 @@ trait IndexPageDriver extends WebSpecification {
   def assertIsHomePage = firefoxDriver.getTitle.equals("Home Page")
   def assertUsernameFieldExist = firefoxDriver.findElementById("username").isDisplayed
   def assertPasswordFieldExist = firefoxDriver.findElementById("password").isDisplayed
+  def assertHasLoginTextFieldsAndButtons = firefoxDriver.findElementById("loginandsignup").isDisplayed
 }
 
 object IndexPageDriver extends IndexPageDriver {

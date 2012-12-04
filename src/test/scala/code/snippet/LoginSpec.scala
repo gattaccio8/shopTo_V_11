@@ -11,5 +11,9 @@ class LoginSpec extends SpecificationWithJUnit with IndexPageDriver {
       assertUsernameFieldExist
       assertPasswordFieldExist
     }
+
+    "hide the username and password row when logged in" in {
+      assertHasLoginTextFieldsAndButtons
+    }
   }
 }
