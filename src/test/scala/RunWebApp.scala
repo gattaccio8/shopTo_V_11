@@ -8,7 +8,7 @@ object RunWebApp extends App {
   val testMode = "test"
   val productionMode = "production"
 
-  System.setProperty("run.mode" , productionMode)   //TODO should be able to run in production mode but it dont work!
+  System.setProperty("run.mode" , productionMode)
   println(Props.get("db.url") + " " + Props.mode)
 
   val server = new Server
