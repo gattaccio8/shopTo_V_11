@@ -17,6 +17,7 @@ object ShopToBuild extends Build {
 
 object Resolvers {
   val jettyRepo = "jetty repo" at "http://siasia.github.com/maven2"
+//  val sonatypeRepo = "Sonatype Repo" at "http://oss.sonatype.org/content/groups/public/"
 }
 
 object BuildSettings {
@@ -57,12 +58,13 @@ object Dependency {
   val liftVersion = "2.4"
   val jettyTestVersion = "6.1.26"
   val jettyVersion = "7.5.4.v20111024"
-  val junitVersion = "4.7"
+  val junitVersion = "4.10"
   val seleniumVersion = "2.12.0"
   val spec2Version = "1.6.1"
   val h2Version = "1.2.147"
   val httpclientVersion = "4.0.2"
   val chromeDriverVersion = "2.25.0"
+  val dispatchVersion = "0.8.8"
 
   val junit = "junit" % "junit" % junitVersion % "test"
   val spec2 = "org.specs2" %% "specs2" % spec2Version % "test"
@@ -87,4 +89,8 @@ object Dependency {
     "net.liftweb" %% "lift-mapper" % liftVersion % "compile"
     )
 
+  val oneOff =
+    Seq (
+//    "net.databinder" %% "dispatch-http" % dispatchVersion % "test"
+    )
 }
