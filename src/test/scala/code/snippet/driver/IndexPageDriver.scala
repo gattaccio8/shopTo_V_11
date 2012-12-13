@@ -11,6 +11,7 @@ trait IndexPageDriver extends WebSpecification {
     elementById("password").sendKeys(password)
   }
 
+  def clickLogin = elementById("login").click()
   def assertIsHomePage = firefoxDriver.getTitle.equals("Home Page")
   def assertUsernameFieldExist = elementById("username").isDisplayed
   def assertPasswordFieldExist = elementById("password").isDisplayed

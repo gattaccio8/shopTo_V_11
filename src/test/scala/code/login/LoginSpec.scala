@@ -15,6 +15,7 @@ class LoginSpec extends SpecificationWithJUnit with IndexPageDriver {
     "deny access to unknown user" in {
       assertHasLoginTextFieldsAndButtons
       enterUsernameAndPassword("anyusername", "anypassword")
+      clickLogin
       true
     }
 
