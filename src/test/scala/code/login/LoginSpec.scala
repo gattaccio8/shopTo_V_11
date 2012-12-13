@@ -12,13 +12,14 @@ class LoginSpec extends SpecificationWithJUnit with IndexPageDriver {
       assertPasswordFieldExist
     }
 
-//    "deny access to unknown user" in notLoggedIn {
-//      (page: LoginDriver) =>
-//
-//      assertHasLoginTextFieldsAndButtons
-//
-//    }
+    "deny access to unknown user" in {
+      assertHasLoginTextFieldsAndButtons
+      enterUsernameAndPassword("anyusername", "anypassword")
+      true
+    }
 
+
+    //TODO just started
     "hide the username and password row when logged in" in {
       assertHasLoginTextFieldsAndButtons
     }
