@@ -1,6 +1,5 @@
-package code.acceptance.infrastructure
+package infrastructure
 
-import infrastructure.Browser
 
 trait WebSpecification {
   WebSpecificationSuite

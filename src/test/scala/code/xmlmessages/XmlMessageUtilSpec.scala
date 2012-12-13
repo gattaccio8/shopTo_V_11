@@ -3,7 +3,7 @@ package code.xmlmessages
 import org.specs2.mutable.SpecificationWithJUnit
 import java.io.File
 import code.model.xmlmessages.XmlMessageUtil
-import code.acceptance.infrastructure.WebSpecification
+import infrastructure.WebSpecification
 
 class XmlMessageUtilSpec extends SpecificationWithJUnit with WebSpecification {
 

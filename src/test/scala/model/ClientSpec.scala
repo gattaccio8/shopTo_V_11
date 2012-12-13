@@ -4,7 +4,7 @@ import org.specs2.mutable.SpecificationWithJUnit
 import net.liftweb.mapper._
 import code.model.persistedobjects.Client
 import code.model.DBConnection
-import code.acceptance.infrastructure.WebSpecification
+import infrastructure.WebSpecification
 
 class ClientSpec extends SpecificationWithJUnit with WebSpecification {
 

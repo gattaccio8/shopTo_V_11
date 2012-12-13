@@ -1,6 +1,6 @@
 package code.driver
 
-import code.acceptance.infrastructure.WebSpecification
+import infrastructure.WebSpecification
 
 
 trait IndexPageDriver extends WebSpecification {

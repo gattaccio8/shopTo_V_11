@@ -1,5 +1,4 @@
-package code.acceptance.infrastructure
-
+package infrastructure
 
 object OnShutDown {
 

@@ -1,4 +1,4 @@
-package code.acceptance.infrastructure
+package infrastructure
 
 import net.liftweb.util.Props
 import org.mortbay.jetty.Server

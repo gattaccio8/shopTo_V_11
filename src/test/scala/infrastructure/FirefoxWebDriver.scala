@@ -1,7 +1,6 @@
 package infrastructure
 
 import org.openqa.selenium.firefox.FirefoxDriver
-import code.acceptance.infrastructure.OnShutDown
 import org.openqa.selenium.chrome.{ChromeDriverService, ChromeDriver}
 
 object Browser {
