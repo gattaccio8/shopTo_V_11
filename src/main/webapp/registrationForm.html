@@ -1,63 +1,63 @@
 <lift:surround with="basic" at="registrationForm">
    <lift:bind-at name="title">Registration Form</lift:bind-at>
       <div class="container-fluid">
-        <form class="lift:form.ajax">
+        <form class="lift:form.ajax?class=form-horizontal">
             <div class="lift:RegistrationForm">
-                 <div>
-                    <div><label class="text_label">Forenames *</label></div>
-                    <div><input id="forenames" type="text"></div>
+                 <div class="control-group">
+                    <label class="text_label, control-label">Forenames *</label>
+                    <div class="controls"><input id="forenames" type="text"></div>
                     <div id="clients_forenames"></div>
                  </div>
-                 <div>
-                    <div><label class="text_label">Surname *</label></div>
-                    <div><input id="surname" type="text"></div>
+                 <div class="control-group">
+                    <div><label class="text_label, control-label">Surname *</label></div>
+                    <div class="controls"><input id="surname" type="text"></div>
                     <div id="clients_surname"></div>
                  </div>
-                 <div>
-                    <div><label class="text_label">email *</label></div>
-                    <div><input id="email" type="text"></div>
+                 <div class="control-group">
+                    <div><label class="text_label, control-label">email *</label></div>
+                    <div class="controls"><input id="email" type="text"></div>
                     <div id="clients_email"></div>
                  </div>
-                 <div>
-                    <div><label class="text_label">password * (min 4 chars)</label></div>
-                    <div><input id="password" type="password"></div>
+                 <div class="control-group">
+                    <div><label class="text_label, control-label">password * (min 4 chars)</label></div>
+                    <div class="controls"><input id="password" type="password"></div>
                     <div id="clients_password"></div>
                  </div>
-                 <div>
-                    <div><label class="text_label">re-type password *</label></div>
-                    <div><input id="password2" type="password"></div>
+                 <div class="control-group">
+                    <div><label class="text_label, control-label">re-type password *</label></div>
+                    <div class="controls"><input id="password2" type="password"></div>
                     <div id="clients_password2"></div>
                  </div>
-                 <div>
+                 <div class="control-group">
                     <div><h2>Credit card address</h2></div>
                  </div>
-                <div>
-                    <div><label class="text_label">address line 1 *</label></div>
-                    <div><input id="addressline1" type="text"></div>
+                 <div class="control-group">
+                    <div><label class="text_label, control-label">address line 1 *</label></div>
+                    <div class="controls"><input id="addressline1" type="text"></div>
                     <div id="clients_address"></div>
                  </div>
-                 <div>
-                    <div><label class="text_label">address line 2 *</label></div>
-                    <div><input id="addressline2" type="text"></div>
+                 <div class="control-group">
+                    <div><label class="text_label, control-label">address line 2 *</label></div>
+                    <div class="controls"><input id="addressline2" type="text"></div>
                      <div id="clients_address2"></div>
                  </div>
-                 <div>
-                    <div><label class="text_label">City/Town *</label></div>
-                    <div><input id="city" type="text"></div>
+                 <div class="control-group">
+                    <div><label class="text_label, control-label">City/Town *</label></div>
+                    <div class="controls"><input id="city" type="text"></div>
                     <div id="clients_city"></div>
                  </div>
-                 <div>
-                    <div><label class="text_label">Post code *</label></div>
-                    <div><input id="postCode" type="text"></div>
+                 <div class="control-group">
+                    <div><label class="text_label, control-label">Post code *</label></div>
+                    <div class="controls"><input id="postCode" type="text"></div>
                     <div id="clients_postCode"></div>
                  </div>
-                 <div>
-                    <div><label class="text_label">Country *</label></div>
-                    <div><input id="country" type="text"></div>
+                 <div class="control-group">
+                    <div><label class="text_label, control-label">Country *</label></div>
+                    <div class="controls"><input id="country" type="text"></div>
                     <div id="countryError"></div>
                  </div>
                 <div>
-                    <div><input type="submit" id="submit" /></div>
+                    <div class="btn, controls"><input type="submit" id="submit" /></div>
                 </div>
             </div>
             <div id="feed"></div>
