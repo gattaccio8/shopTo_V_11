@@ -24,7 +24,8 @@ object RegistrationForm {
       val client = Client(forenames, surname, email, password, password2, address, address2, city, postCode, country)
       client.validate match {
         case Nil => client.save(); S.redirectTo("/") //JsCmds.Alert("Success registration")
-        case error: List[FieldError] => error.map(e => JsCmds.SetHtml(e.field.uniqueFieldId.get, e.msg)).fold(JsCmds.Noop)((acc, n) => acc & n)
+        case error: List[FieldError] => error.map(e => JsCmds.SetHtml(e.field.uniqueFieldId.get, e.msg ))
+          .fold(JsCmds.Noop)((acc, n) => acc & n)
       }
     }
 
