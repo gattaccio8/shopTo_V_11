@@ -12,9 +12,10 @@ class DisplayProducts extends CometActor {
     val products = XmlMessageUtil.getProdDetails(file)
     <div class="row-fluid">
       { products.map(x =>
-        <div> { <img class="images" src={x.image} alt="picture"/> } </div>
-        <div class="gamename"> { x.name } </div>
-        <div class="price"> { <p>£{ x.price } { x.currency }</p> } </div>)
+        <dl class="dl-horizontal"><dt>{ <img class="images" src={x.image} alt="picture"/> }</dt>
+          <dd class="gamename"> { x.name }</dd>
+          <dd class="price">£{ x.price } { x.currency }</dd>
+        </dl>)
       }
     </div>
 
