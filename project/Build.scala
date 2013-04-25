@@ -9,7 +9,7 @@ object ShopToBuild extends Build {
   import Resolvers._
   import BuildSettings._
 
-  lazy val root = Project(id = "shopTo_V_11", base = file("."), settings = buildSettings ++ webSettings ++ Seq(
+  lazy val root = Project(id = "shopTo_V_11", base = file("."), settings = standardBuildSettings ++ webSettings ++ Seq(
   resolvers := Seq(jettyRepo, Classpaths.typesafeResolver),
   libraryDependencies ++= lift ++ jetty ++ seleniumDrivers ++ Seq(junit, spec2, h2, httpComponent)
   ))
@@ -26,10 +26,10 @@ object BuildSettings {
   val blah = TaskKey[Unit]("create-directory")
   var printHello = TaskKey[Unit]("hello")
 
-  val buildSettings: Seq[sbt.Project.Setting[_]] = Defaults.defaultSettings ++ Seq[Setting[_]](
+  val standardBuildSettings: Seq[sbt.Project.Setting[_]] = Defaults.defaultSettings ++ Seq[Setting[_]](
     organization := "com.shopTo",     //TODO these 3 lines are ignored here and picked from build.sbt instead
     version := "1.0.0",
-    scalaVersion := "2.9.1",
+    scalaVersion := "2.10.1",
     retrieveManaged := false,
 
     parallelExecution := false,
@@ -55,12 +55,12 @@ object BuildSettings {
 
 object Dependency {
 
-  val liftVersion = "2.4"
+  val liftVersion = "2.5-M4"
   val jettyTestVersion = "6.1.26"
   val jettyVersion = "7.5.4.v20111024"
   val junitVersion = "4.10"
   val seleniumVersion = "2.12.0"
-  val spec2Version = "1.6.1"
+  val spec2Version = "1.14"
   val h2Version = "1.2.147"
   val httpclientVersion = "4.0.2"
   val chromeDriverVersion = "2.25.0"
@@ -85,8 +85,8 @@ object Dependency {
 
   val lift =
   Seq (
-    "net.liftweb" %% "lift-webkit" % liftVersion % "compile",
-    "net.liftweb" %% "lift-mapper" % liftVersion % "compile"
+    "net.liftweb" %% "lift-webkit" % liftVersion exclude("org.spec2", "org.spec2_2.10"),
+    "net.liftweb" %% "lift-mapper" % liftVersion exclude("org.spec2", "org.spec2_2.10")
     )
 
   val oneOff =

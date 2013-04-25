@@ -13,12 +13,12 @@ object XmlMessageUtil {
 
   def getProdDetails(file: File) = {
     val nodeS = readTags(file)
-    for(val pro <- nodeS \\ "Product") {
-      var image =  (pro \\ "Media" \\ "Boxart").text
-      var name =  (pro \\ "Name").text
-      var currency = (pro \\ "Price" \\ "Currency").text
-      var price =  (pro \\ "Price" \\ "Amount").text
-      val product = new Product(name, price, currency, image)
+    for(pro <- nodeS \\ "Product") {
+      def image =  (pro \\ "Media" \\ "Boxart").text
+      def name =  (pro \\ "Name").text
+      def currency = (pro \\ "Price" \\ "Currency").text
+      def price =  (pro \\ "Price" \\ "Amount").text
+      def product = new Product(name, price, currency, image)
       ListOfProducts.allProducts += product
     }
     ListOfProducts.allProducts

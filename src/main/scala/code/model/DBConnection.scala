@@ -26,7 +26,7 @@ object DBConnection extends Loggable {
         vendor = Some(dBVendor)
       }
     } catch {
-      case e => e.printStackTrace()
+      case e: Throwable => e.printStackTrace()
     }
   }
 
