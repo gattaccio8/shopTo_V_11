@@ -55,16 +55,19 @@ object BuildSettings {
 
 object Dependency {
 
-  val liftVersion = "2.5-M4"
+  val liftVersion = "2.5-RC2"
   val jettyTestVersion = "6.1.26"
   val jettyVersion = "7.5.4.v20111024"
   val junitVersion = "4.10"
-  val seleniumVersion = "2.12.0"
+  val seleniumVersion = "2.32.0"
   val spec2Version = "1.14"
   val h2Version = "1.2.147"
   val httpclientVersion = "4.0.2"
   val chromeDriverVersion = "2.25.0"
   val dispatchVersion = "0.8.8"
+  val logbackVersion = "1.0.9"
+  val seleniumServerVersion = "2.0a2"
+  val seleniumJavaVersion = "2.8.0"
 
   val junit = "junit" % "junit" % junitVersion % "test"
   val spec2 = "org.specs2" %% "specs2" % spec2Version % "test"
@@ -74,7 +77,9 @@ object Dependency {
   val seleniumDrivers =
     Seq(
       "org.seleniumhq.selenium" % "selenium-firefox-driver" % seleniumVersion,
-      "org.seleniumhq.selenium" % "selenium-chrome-driver" % chromeDriverVersion
+      "org.seleniumhq.selenium" % "selenium-chrome-driver" % chromeDriverVersion,
+      "org.seleniumhq.selenium" % "selenium-server" % seleniumServerVersion,
+      "org.seleniumhq.selenium" % "selenium-java" % seleniumJavaVersion
   )
 
   val jetty =
@@ -91,6 +96,7 @@ object Dependency {
 
   val oneOff =
     Seq (
+      "ch.qos.logback" % "logback-classic" % logbackVersion
 //    "net.databinder" %% "dispatch-http" % dispatchVersion % "test"
     )
 }

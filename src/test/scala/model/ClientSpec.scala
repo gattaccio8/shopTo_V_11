@@ -21,21 +21,21 @@ class ClientSpec extends SpecificationWithJUnit with WebSpecification {
     }
 
     "persist the 'client' into DB table" in {
-      firefoxDriver.get("http://localhost:8080/registrationForm.html")
-      firefoxDriver.findElementById("forenames").sendKeys("anyname")
-      firefoxDriver.findElementById("surname").sendKeys("anysurname")
-      firefoxDriver.findElementById("addressline1").sendKeys("high street")
-      firefoxDriver.findElementById("addressline2").sendKeys("kingston")
-      firefoxDriver.findElementById("city").sendKeys("london")
-      firefoxDriver.findElementById("email").sendKeys("gattaccio8@hotmail.com")
-      firefoxDriver.findElementById("password").sendKeys("monkey")
-      firefoxDriver.findElementById("password2").sendKeys("monkey")
-      firefoxDriver.findElementById("postCode").sendKeys("sw15 3pl")
-      firefoxDriver.findElementById("submit").click()
+      driver.get("http://localhost:8080/registrationForm.html")
+      driver.findElementById("forenames").sendKeys("anyname")
+      driver.findElementById("surname").sendKeys("anysurname")
+      driver.findElementById("addressline1").sendKeys("high street")
+      driver.findElementById("addressline2").sendKeys("kingston")
+      driver.findElementById("city").sendKeys("london")
+      driver.findElementById("email").sendKeys("gattaccio8@hotmail.com")
+      driver.findElementById("password").sendKeys("monkey")
+      driver.findElementById("password2").sendKeys("monkey")
+      driver.findElementById("postCode").sendKeys("sw15 3pl")
+      driver.findElementById("submit").click()
       val start = System.currentTimeMillis()
       var result = false
       while (!result && System.currentTimeMillis() - start < 5000) {
-        result = firefoxDriver.getTitle.equals("App: test Home")
+        result = driver.getTitle.equals("App: test Home")
         Thread.sleep(50)
       }
       val clients: List[Client] = Client.findAll
