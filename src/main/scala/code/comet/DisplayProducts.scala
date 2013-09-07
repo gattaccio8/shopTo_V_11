@@ -8,7 +8,7 @@ class DisplayProducts extends CometActor {
 
 //    val products = XmlMessageUtil.getProdDetails //file)
   override def render = {
-    val file = new File("/Users/fabio/Documents/dev/projects/net.shopto/src/test/resources/response/response.xml")
+    val file = new File("/Users/fabio/Documents/dev/projects/shopTo_V_11/src/test/resources/response/response.xml")
     val products = XmlMessageUtil.getProdDetails(file)
     <div class="row-fluid">
       { products.map(x =>

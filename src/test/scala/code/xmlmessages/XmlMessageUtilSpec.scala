@@ -7,7 +7,7 @@ import infrastructure.WebSpecification
 
 class XmlMessageUtilSpec extends SpecificationWithJUnit with WebSpecification {
 
-  val url = "/Users/fabio/Documents/dev/projects/net.shopTo/src/test/resources/response/response.xml"
+  val url = "/Users/fabio/Documents/dev/projects/shopTo_V_11/src/test/resources/response/response.xml"
   val file = new File(url)
 
   "the xml file contains " should {
