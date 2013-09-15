@@ -5,12 +5,12 @@ import org.joda.time.LocalDate
 
 case class Dates(d1: LocalDate, d2: LocalDate)
 
-trait DaysCount[T, R] {
+trait Counter[T, R] {
   def counting(t: T): R
 }
 
-object DaysCount {
-  implicit object DatesDaysCount extends DaysCount[Dates, Int] {
+object Counter {
+  implicit object DaysCounter extends Counter[Dates, Int] {
     var days = 0
     def counting(t: Dates): Int =
       if(!t.d1.equals(t.d2)) {
@@ -23,7 +23,7 @@ object DaysCount {
 
 
 trait Count {
-  def counting[T, R](t: T)(implicit daysCount: DaysCount[T, R]): R = daysCount.counting(t)
+  def counting[T, R](t: T)(implicit daysCount: Counter[T, R]): R = daysCount.counting(t)
 }
 
 
